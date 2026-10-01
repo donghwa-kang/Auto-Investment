@@ -1,0 +1,14 @@
+{
+  "id": "USER_RESEARCH_SCOPE_20260911_V1",
+  "source": "EXPLICIT_USER_CLARIFICATION",
+  "scope": "RESEARCH_CANDIDATE_CLASSIFICATION_ONLY",
+  "user_excludes": "SINGLE_STOCK_LEVERAGED_REQUIRING_DEPOSIT_GTE_30000000_KRW",
+  "minimum_excluded_deposit_krw": 30000000,
+  "blanket_leverage_ban": false,
+  "explicit_research_candidates": ["SOXX", "SOXL"],
+  "simulation_requires_defined_product_data_cost_forecast_profiles": true,
+  "live_eligibility": "UNVERIFIED",
+  "live_enabled": false,
+  "real_market_feed_connected": false,
+  "original_policy_files_modified": false
+}

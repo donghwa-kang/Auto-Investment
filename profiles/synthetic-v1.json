@@ -1,0 +1,61 @@
+{
+  "id": "SYNTHETIC_V1",
+  "version": "1.0",
+  "purpose": "TEST_ONLY",
+  "provenance": "SYNTHETIC_FIXTURE",
+  "allowedModes": ["PAPER", "BACKTEST"],
+  "liveForbidden": true,
+  "precision": {
+    "digits": 40,
+    "rounding": "HALF_EVEN",
+    "moneyStorage": "DECIMAL_STRING"
+  },
+  "seed": 1701,
+  "generator": "120 completed weekday sessions plus one synthetic session; source 1-minute OHLCV; deterministic triangular intraday shape; declared scenario perturbations",
+  "calendar": "SYNTHETIC_WEEKDAY_V1_NOT_EXCHANGE_CALENDAR",
+  "benchmark": "DEMO_BENCHMARK_VOLUME_BEARING_PROXY_TEST_ONLY",
+  "ticks": { "KR": "1", "US": "0.01" },
+  "lot": 1,
+  "fxKrwPerUsd": "1300",
+  "fxCashStressBps": 100,
+  "remainingDailyOperatingBudgetKrw": "0",
+  "monthlyOperatingBudgetKrw": "0",
+  "fees": {
+    "entryBps": "1",
+    "exitBps": "1",
+    "exitAdverseBps": "2",
+    "fixedOperatingKrw": "0",
+    "recognition": "fees explicit once; bid/ask embedded in fills; adverse buffer only forecast"
+  },
+  "forecast": {
+    "id": "DECLARED_DISTRIBUTION_FIXTURE",
+    "version": "1",
+    "expectedGrossR": "0.7",
+    "q05NetR": "-1.2",
+    "notPredictive": true
+  },
+  "execution": {
+    "qualification": "EXPLORATORY",
+    "latencyMs": 1000,
+    "maxUnitsPerFill": 1,
+    "fillEvidence": "later timestamp executable bid/ask plus explicit size; no OHLC touch inference",
+    "sameBarAmbiguity": "ADVERSE_STOP_FIRST",
+    "settlement": "EXPLICIT_SYNTHETIC_EVENT_NEXT_STEP_NOT_REAL_T_PLUS",
+    "exitType": "LIMIT",
+    "maxAdversePriceBps": 100,
+    "priceBand": "SYNTHETIC_NO_BAND_CONFIRMED",
+    "automaticMarketFallback": false,
+    "maxReplacements": 2
+  },
+  "variant": "Q_TEST_ONLY",
+  "bAndPTie": "ABSTAIN_NO_VALIDATED_PRIORITY",
+  "training": "NONE",
+  "performanceQualified": false,
+  "eventCalendar": {
+    "status": "KNOWN_TEST_ONLY",
+    "events": [],
+    "news": "KNOWN_NO_NEWS_SYNTHETIC_NOT_REAL_COLLECTION"
+  },
+  "corporateActions": "NONE_IN_DEFAULT_SCENARIOS_SEPARATE_UNIT_FIXTURES",
+  "gapScenario": "at +9s price 97% of signal; after +12s 94%, tests bounded exit failure"
+}

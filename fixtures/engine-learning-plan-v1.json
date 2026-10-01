@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "ENGINE_LEARNING_PLAN_V1",
+  "experimentId": "engine-bridge-demo-v1",
+  "market": "KR",
+  "signal": "B",
+  "model": {
+    "kind": "RIDGE_V1",
+    "lambda": 0.1,
+    "numericProfile": "JS_FLOAT64_RESEARCH_V1"
+  },
+  "validation": {
+    "minTrainRows": 8,
+    "minTestRows": 2,
+    "embargoMinutes": 1,
+    "folds": [
+      {
+        "id": "engine-fold-1",
+        "trainFrom": "2026-08-31T00:44:00.000Z",
+        "trainTo": "2026-08-31T00:46:00.000Z",
+        "testFrom": "2026-08-31T01:00:00.000Z",
+        "testTo": "2026-08-31T01:00:20.000Z"
+      }
+    ]
+  }
+}

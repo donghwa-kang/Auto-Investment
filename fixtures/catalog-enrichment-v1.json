@@ -1,0 +1,353 @@
+{
+  "schemaVersion": "OFFLINE_CATALOG_ENRICHMENT_V1",
+  "purpose": "TEST_ONLY",
+  "catalog": {
+    "schemaVersion": "OFFLINE_CATALOG_V1",
+    "purpose": "TEST_ONLY",
+    "sourceId": "SYNTHETIC_ENRICHMENT_BASE_V1",
+    "asOf": "2026-09-11T07:00:00.000Z",
+    "metadataMaxAgeMs": 86400000,
+    "records": [
+      {
+        "market": "US",
+        "venue": "TEST-US",
+        "currency": "USD",
+        "kind": "ETF",
+        "underlying": "UNKNOWN",
+        "leveraged": null,
+        "requiredDepositKrw": null,
+        "listingStatus": "LISTED",
+        "brokerSupported": true,
+        "revision": 1,
+        "observedAt": "2026-09-11T06:00:00.000Z",
+        "receivedAt": "2026-09-11T06:00:01.000Z",
+        "availableAt": "2026-09-11T06:00:02.000Z",
+        "effectiveAt": "2026-09-11T06:00:00.000Z",
+        "instrumentId": "TEST-SOXL",
+        "symbol": "SOXL"
+      },
+      {
+        "market": "US",
+        "venue": "TEST-US",
+        "currency": "USD",
+        "kind": "ETF",
+        "underlying": "UNKNOWN",
+        "leveraged": null,
+        "requiredDepositKrw": null,
+        "listingStatus": "LISTED",
+        "brokerSupported": true,
+        "revision": 1,
+        "observedAt": "2026-09-11T06:00:00.000Z",
+        "receivedAt": "2026-09-11T06:00:01.000Z",
+        "availableAt": "2026-09-11T06:00:02.000Z",
+        "effectiveAt": "2026-09-11T06:00:00.000Z",
+        "instrumentId": "TEST-SOXX",
+        "symbol": "SOXX"
+      },
+      {
+        "market": "US",
+        "venue": "TEST-US",
+        "currency": "USD",
+        "kind": "ETF",
+        "underlying": "UNKNOWN",
+        "leveraged": null,
+        "requiredDepositKrw": null,
+        "listingStatus": "LISTED",
+        "brokerSupported": true,
+        "revision": 1,
+        "observedAt": "2026-09-11T06:00:00.000Z",
+        "receivedAt": "2026-09-11T06:00:01.000Z",
+        "availableAt": "2026-09-11T06:00:02.000Z",
+        "effectiveAt": "2026-09-11T06:00:00.000Z",
+        "instrumentId": "TEST-EXCLUDED",
+        "symbol": "TESTEX"
+      },
+      {
+        "market": "US",
+        "venue": "TEST-US",
+        "currency": "USD",
+        "kind": "ETF",
+        "underlying": "UNKNOWN",
+        "leveraged": null,
+        "requiredDepositKrw": null,
+        "listingStatus": "LISTED",
+        "brokerSupported": true,
+        "revision": 1,
+        "observedAt": "2026-09-11T06:00:00.000Z",
+        "receivedAt": "2026-09-11T06:00:01.000Z",
+        "availableAt": "2026-09-11T06:00:02.000Z",
+        "effectiveAt": "2026-09-11T06:00:00.000Z",
+        "instrumentId": "TEST-MISSING",
+        "symbol": "TESTMISS"
+      },
+      {
+        "market": "US",
+        "venue": "TEST-US",
+        "currency": "USD",
+        "kind": "ETF",
+        "underlying": "UNKNOWN",
+        "leveraged": null,
+        "requiredDepositKrw": null,
+        "listingStatus": "LISTED",
+        "brokerSupported": true,
+        "revision": 1,
+        "observedAt": "2026-09-11T06:00:00.000Z",
+        "receivedAt": "2026-09-11T06:00:01.000Z",
+        "availableAt": "2026-09-11T06:00:02.000Z",
+        "effectiveAt": "2026-09-11T06:00:00.000Z",
+        "instrumentId": "TEST-CONFLICT",
+        "symbol": "TESTCONFLICT"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "sourceId": "TEST-ISSUER",
+      "purpose": "TEST_ONLY",
+      "allowedFields": ["underlying", "leveraged"],
+      "metadataMaxAgeMs": 86400000
+    },
+    {
+      "sourceId": "TEST-BROKER",
+      "purpose": "TEST_ONLY",
+      "allowedFields": ["requiredDepositKrw"],
+      "metadataMaxAgeMs": 86400000
+    },
+    {
+      "sourceId": "TEST-SECOND-ISSUER",
+      "purpose": "TEST_ONLY",
+      "allowedFields": ["underlying", "leveraged"],
+      "metadataMaxAgeMs": 86400000
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "TEST-E1",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-SOXL",
+        "symbol": "SOXL",
+        "baseRecordHash": "24414aa5e63b376026c51890ad53f70fc97be6a6a605be2cb22313fb792697ed"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "underlying",
+      "value": "INDEX"
+    },
+    {
+      "evidenceId": "TEST-E2",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-SOXL",
+        "symbol": "SOXL",
+        "baseRecordHash": "24414aa5e63b376026c51890ad53f70fc97be6a6a605be2cb22313fb792697ed"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "leveraged",
+      "value": true
+    },
+    {
+      "evidenceId": "TEST-E3",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-SOXX",
+        "symbol": "SOXX",
+        "baseRecordHash": "b32be9c80a76a64b61d36263fd15c4a150790dfdc720ebcb68e39fbdad0b22ce"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "underlying",
+      "value": "INDEX"
+    },
+    {
+      "evidenceId": "TEST-E4",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-SOXX",
+        "symbol": "SOXX",
+        "baseRecordHash": "b32be9c80a76a64b61d36263fd15c4a150790dfdc720ebcb68e39fbdad0b22ce"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "leveraged",
+      "value": false
+    },
+    {
+      "evidenceId": "TEST-E5",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-EXCLUDED",
+        "symbol": "TESTEX",
+        "baseRecordHash": "986e8f6a13ae4c211b8dbf6187b643ed863c1a551233770a8a721f3153047a3a"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "underlying",
+      "value": "SINGLE_STOCK"
+    },
+    {
+      "evidenceId": "TEST-E6",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-EXCLUDED",
+        "symbol": "TESTEX",
+        "baseRecordHash": "986e8f6a13ae4c211b8dbf6187b643ed863c1a551233770a8a721f3153047a3a"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "leveraged",
+      "value": true
+    },
+    {
+      "evidenceId": "TEST-E7",
+      "sourceId": "TEST-BROKER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-EXCLUDED",
+        "symbol": "TESTEX",
+        "baseRecordHash": "986e8f6a13ae4c211b8dbf6187b643ed863c1a551233770a8a721f3153047a3a"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "requiredDepositKrw",
+      "value": 30000000
+    },
+    {
+      "evidenceId": "TEST-E8",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-MISSING",
+        "symbol": "TESTMISS",
+        "baseRecordHash": "01befca9333807ac6362601b62826ac991b98ac20763348d28c501d3d72b3145"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "underlying",
+      "value": "SINGLE_STOCK"
+    },
+    {
+      "evidenceId": "TEST-E9",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-MISSING",
+        "symbol": "TESTMISS",
+        "baseRecordHash": "01befca9333807ac6362601b62826ac991b98ac20763348d28c501d3d72b3145"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "leveraged",
+      "value": true
+    },
+    {
+      "evidenceId": "TEST-E10",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-CONFLICT",
+        "symbol": "TESTCONFLICT",
+        "baseRecordHash": "81f1f04802d584e84731125996ee5262199875bc05e846e09d02a3b07a549a7a"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "underlying",
+      "value": "INDEX"
+    },
+    {
+      "evidenceId": "TEST-E11",
+      "sourceId": "TEST-SECOND-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-CONFLICT",
+        "symbol": "TESTCONFLICT",
+        "baseRecordHash": "81f1f04802d584e84731125996ee5262199875bc05e846e09d02a3b07a549a7a"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "underlying",
+      "value": "SINGLE_STOCK"
+    },
+    {
+      "evidenceId": "TEST-E12",
+      "sourceId": "TEST-ISSUER",
+      "sourceDocumentId": "SYNTHETIC-DOCUMENT-V1",
+      "sourceDocumentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject": {
+        "market": "US",
+        "instrumentId": "TEST-CONFLICT",
+        "symbol": "TESTCONFLICT",
+        "baseRecordHash": "81f1f04802d584e84731125996ee5262199875bc05e846e09d02a3b07a549a7a"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T06:00:00.000Z",
+      "receivedAt": "2026-09-11T06:00:01.000Z",
+      "availableAt": "2026-09-11T06:00:02.000Z",
+      "effectiveAt": "2026-09-11T06:00:00.000Z",
+      "field": "leveraged",
+      "value": true
+    }
+  ]
+}

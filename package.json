@@ -1,0 +1,60 @@
+{
+  "name": "offline-paper-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.20.0 <25",
+    "npm": ">=11 <12"
+  },
+  "scripts": {
+    "build": "npm run typecheck && npm run build:engine && vite build",
+    "build:engine": "tsc -p tsconfig.node.json",
+    "start": "node dist/runtime/src/server/main.js",
+    "portfolio:web": "node dist/runtime/src/server/portfolio-web-main.js",
+    "market:check": "node dist/runtime/src/server/market-check-cli.js",
+    "catalog:check": "node dist/runtime/src/server/catalog-check-cli.js",
+    "catalog:fetch": "node dist/runtime/src/server/catalog-fetch-cli.js",
+    "catalog:cached": "node dist/runtime/src/server/catalog-cached-cli.js",
+    "catalog:enrich": "node dist/runtime/src/server/catalog-enrich-cli.js",
+    "market:quality": "node dist/runtime/src/server/market-quality-cli.js",
+    "source:ingest": "node dist/runtime/src/server/source-ingest-cli.js",
+    "learning:sample": "node dist/runtime/src/server/learning-cli.js sample",
+    "learning:register": "node dist/runtime/src/server/learning-cli.js register",
+    "learning:run": "node dist/runtime/src/server/learning-cli.js run",
+    "learning:status": "node dist/runtime/src/server/learning-cli.js status",
+    "portfolio:record": "node dist/runtime/src/server/paper-learning-cli.js record",
+    "learning:export": "node dist/runtime/src/server/paper-learning-cli.js export",
+    "learning:convert": "node dist/runtime/src/server/paper-learning-cli.js convert",
+    "market:preflight": "node dist/runtime/src/server/multi-preflight-cli.js",
+    "replay:sample": "node dist/runtime/src/server/signal-replay-sample-cli.js",
+    "replay:signals": "node dist/runtime/src/server/signal-replay-cli.js",
+    "portfolio:sample": "node dist/runtime/src/server/portfolio-sample-cli.js",
+    "portfolio:run": "node dist/runtime/src/server/portfolio-cli.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests scripts vite.config.ts playwright.config.ts",
+    "test": "npm run build:engine && node --test --test-concurrency=1 dist/runtime/tests/*.test.js",
+    "test:e2e": "playwright test",
+    "verify:originals": "node scripts/verify-originals.mjs",
+    "verify": "node scripts/verify.mjs",
+    "format:check": "prettier --check src tests scripts profiles/synthetic-v1.json",
+    "check": "npm run verify:originals && npm run typecheck && npm run lint && npm test && npm run build"
+  },
+  "dependencies": {
+    "decimal.js": "10.6.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "eslint": "10.10.0",
+    "prettier": "3.9.6",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.70.0",
+    "vite": "8.3.0"
+  }
+}

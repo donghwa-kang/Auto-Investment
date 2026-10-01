@@ -1,0 +1,539 @@
+{
+  "schemaVersion": "OFFLINE_MARKET_QUALITY_V1",
+  "purpose": "TEST_ONLY",
+  "asOf": "2026-09-11T01:03:01.000Z",
+  "profile": {
+    "profileId": "TEST-QUALITY-1",
+    "purpose": "TEST_ONLY",
+    "lastPriceMaxAgeMs": 2000,
+    "windowEndMaxAgeMs": 2000
+  },
+  "sources": [
+    {
+      "sourceId": "TEST-FEED",
+      "kinds": ["BAR", "PRICE", "QUOTE"]
+    }
+  ],
+  "assets": [
+    {
+      "assetKey": "TEST-KR",
+      "identity": {
+        "instrumentId": "TEST-KR",
+        "market": "KR",
+        "symbol": "TEST-KR",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "role": "INSTRUMENT",
+      "sourceId": "TEST-FEED",
+      "benchmarkKey": "TEST-KR-BENCH",
+      "session": {
+        "sessionId": "TEST-SESSION",
+        "openAt": "2026-09-11T01:00:00.000Z",
+        "closeAt": "2026-09-11T02:00:00.000Z",
+        "availableAt": "2026-09-11T00:59:59.000Z"
+      },
+      "windowFrom": "2026-09-11T01:00:00.000Z",
+      "windowTo": "2026-09-11T01:03:00.000Z",
+      "actionContext": {
+        "status": "NO_ACTIONS_IN_WINDOW",
+        "availableAt": "2026-09-11T00:59:59.000Z"
+      }
+    },
+    {
+      "assetKey": "TEST-KR-BENCH",
+      "identity": {
+        "instrumentId": "TEST-KR-BENCH",
+        "market": "KR",
+        "symbol": "TEST-KR-BENCH",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "role": "BENCHMARK",
+      "sourceId": "TEST-FEED",
+      "benchmarkKey": null,
+      "session": {
+        "sessionId": "TEST-SESSION",
+        "openAt": "2026-09-11T01:00:00.000Z",
+        "closeAt": "2026-09-11T02:00:00.000Z",
+        "availableAt": "2026-09-11T00:59:59.000Z"
+      },
+      "windowFrom": "2026-09-11T01:00:00.000Z",
+      "windowTo": "2026-09-11T01:03:00.000Z",
+      "actionContext": {
+        "status": "NO_ACTIONS_IN_WINDOW",
+        "availableAt": "2026-09-11T00:59:59.000Z"
+      }
+    },
+    {
+      "assetKey": "TEST-US",
+      "identity": {
+        "instrumentId": "TEST-US",
+        "market": "US",
+        "symbol": "TEST-US",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "role": "INSTRUMENT",
+      "sourceId": "TEST-FEED",
+      "benchmarkKey": "TEST-US-BENCH",
+      "session": {
+        "sessionId": "TEST-SESSION",
+        "openAt": "2026-09-11T01:00:00.000Z",
+        "closeAt": "2026-09-11T02:00:00.000Z",
+        "availableAt": "2026-09-11T00:59:59.000Z"
+      },
+      "windowFrom": "2026-09-11T01:00:00.000Z",
+      "windowTo": "2026-09-11T01:03:00.000Z",
+      "actionContext": {
+        "status": "NO_ACTIONS_IN_WINDOW",
+        "availableAt": "2026-09-11T00:59:59.000Z"
+      }
+    },
+    {
+      "assetKey": "TEST-US-BENCH",
+      "identity": {
+        "instrumentId": "TEST-US-BENCH",
+        "market": "US",
+        "symbol": "TEST-US-BENCH",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "role": "BENCHMARK",
+      "sourceId": "TEST-FEED",
+      "benchmarkKey": null,
+      "session": {
+        "sessionId": "TEST-SESSION",
+        "openAt": "2026-09-11T01:00:00.000Z",
+        "closeAt": "2026-09-11T02:00:00.000Z",
+        "availableAt": "2026-09-11T00:59:59.000Z"
+      },
+      "windowFrom": "2026-09-11T01:00:00.000Z",
+      "windowTo": "2026-09-11T01:03:00.000Z",
+      "actionContext": {
+        "status": "NO_ACTIONS_IN_WINDOW",
+        "availableAt": "2026-09-11T00:59:59.000Z"
+      }
+    }
+  ],
+  "records": [
+    {
+      "recordId": "TEST-KR-BAR-0",
+      "assetKey": "TEST-KR",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-KR",
+        "market": "KR",
+        "symbol": "TEST-KR",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:01:00.000Z",
+      "receivedAt": "2026-09-11T01:01:00.100Z",
+      "availableAt": "2026-09-11T01:01:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:00:00.000Z",
+      "closeAt": "2026-09-11T01:01:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-KR-BAR-1",
+      "assetKey": "TEST-KR",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-KR",
+        "market": "KR",
+        "symbol": "TEST-KR",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:02:00.000Z",
+      "receivedAt": "2026-09-11T01:02:00.100Z",
+      "availableAt": "2026-09-11T01:02:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:01:00.000Z",
+      "closeAt": "2026-09-11T01:02:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-KR-BAR-2",
+      "assetKey": "TEST-KR",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-KR",
+        "market": "KR",
+        "symbol": "TEST-KR",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:03:00.000Z",
+      "receivedAt": "2026-09-11T01:03:00.100Z",
+      "availableAt": "2026-09-11T01:03:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:02:00.000Z",
+      "closeAt": "2026-09-11T01:03:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-KR-PRICE",
+      "assetKey": "TEST-KR",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-KR",
+        "market": "KR",
+        "symbol": "TEST-KR",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:03:00.000Z",
+      "receivedAt": "2026-09-11T01:03:00.100Z",
+      "availableAt": "2026-09-11T01:03:00.200Z",
+      "kind": "PRICE",
+      "basis": "RAW",
+      "price": "101"
+    },
+    {
+      "recordId": "TEST-KR-QUOTE",
+      "assetKey": "TEST-KR",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-KR",
+        "market": "KR",
+        "symbol": "TEST-KR",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:03:00.000Z",
+      "receivedAt": "2026-09-11T01:03:00.100Z",
+      "availableAt": "2026-09-11T01:03:00.200Z",
+      "kind": "QUOTE",
+      "basis": "RAW",
+      "bid": "100.9",
+      "ask": "101.1",
+      "bidSize": "100",
+      "askSize": "100"
+    },
+    {
+      "recordId": "TEST-KR-BENCH-BAR-0",
+      "assetKey": "TEST-KR-BENCH",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-KR-BENCH",
+        "market": "KR",
+        "symbol": "TEST-KR-BENCH",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:01:00.000Z",
+      "receivedAt": "2026-09-11T01:01:00.100Z",
+      "availableAt": "2026-09-11T01:01:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:00:00.000Z",
+      "closeAt": "2026-09-11T01:01:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-KR-BENCH-BAR-1",
+      "assetKey": "TEST-KR-BENCH",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-KR-BENCH",
+        "market": "KR",
+        "symbol": "TEST-KR-BENCH",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:02:00.000Z",
+      "receivedAt": "2026-09-11T01:02:00.100Z",
+      "availableAt": "2026-09-11T01:02:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:01:00.000Z",
+      "closeAt": "2026-09-11T01:02:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-KR-BENCH-BAR-2",
+      "assetKey": "TEST-KR-BENCH",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-KR-BENCH",
+        "market": "KR",
+        "symbol": "TEST-KR-BENCH",
+        "venue": "TEST-KR",
+        "currency": "KRW"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:03:00.000Z",
+      "receivedAt": "2026-09-11T01:03:00.100Z",
+      "availableAt": "2026-09-11T01:03:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:02:00.000Z",
+      "closeAt": "2026-09-11T01:03:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-US-BAR-0",
+      "assetKey": "TEST-US",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-US",
+        "market": "US",
+        "symbol": "TEST-US",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:01:00.000Z",
+      "receivedAt": "2026-09-11T01:01:00.100Z",
+      "availableAt": "2026-09-11T01:01:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:00:00.000Z",
+      "closeAt": "2026-09-11T01:01:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-US-BAR-1",
+      "assetKey": "TEST-US",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-US",
+        "market": "US",
+        "symbol": "TEST-US",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:02:00.000Z",
+      "receivedAt": "2026-09-11T01:02:00.100Z",
+      "availableAt": "2026-09-11T01:02:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:01:00.000Z",
+      "closeAt": "2026-09-11T01:02:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-US-BAR-2",
+      "assetKey": "TEST-US",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-US",
+        "market": "US",
+        "symbol": "TEST-US",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:03:00.000Z",
+      "receivedAt": "2026-09-11T01:03:00.100Z",
+      "availableAt": "2026-09-11T01:03:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:02:00.000Z",
+      "closeAt": "2026-09-11T01:03:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-US-PRICE",
+      "assetKey": "TEST-US",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-US",
+        "market": "US",
+        "symbol": "TEST-US",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:03:00.000Z",
+      "receivedAt": "2026-09-11T01:03:00.100Z",
+      "availableAt": "2026-09-11T01:03:00.200Z",
+      "kind": "PRICE",
+      "basis": "RAW",
+      "price": "101"
+    },
+    {
+      "recordId": "TEST-US-QUOTE",
+      "assetKey": "TEST-US",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-US",
+        "market": "US",
+        "symbol": "TEST-US",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:03:00.000Z",
+      "receivedAt": "2026-09-11T01:03:00.100Z",
+      "availableAt": "2026-09-11T01:03:00.200Z",
+      "kind": "QUOTE",
+      "basis": "RAW",
+      "bid": "100.9",
+      "ask": "101.1",
+      "bidSize": "100",
+      "askSize": "100"
+    },
+    {
+      "recordId": "TEST-US-BENCH-BAR-0",
+      "assetKey": "TEST-US-BENCH",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-US-BENCH",
+        "market": "US",
+        "symbol": "TEST-US-BENCH",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:01:00.000Z",
+      "receivedAt": "2026-09-11T01:01:00.100Z",
+      "availableAt": "2026-09-11T01:01:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:00:00.000Z",
+      "closeAt": "2026-09-11T01:01:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-US-BENCH-BAR-1",
+      "assetKey": "TEST-US-BENCH",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-US-BENCH",
+        "market": "US",
+        "symbol": "TEST-US-BENCH",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:02:00.000Z",
+      "receivedAt": "2026-09-11T01:02:00.100Z",
+      "availableAt": "2026-09-11T01:02:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:01:00.000Z",
+      "closeAt": "2026-09-11T01:02:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    },
+    {
+      "recordId": "TEST-US-BENCH-BAR-2",
+      "assetKey": "TEST-US-BENCH",
+      "sourceId": "TEST-FEED",
+      "identity": {
+        "instrumentId": "TEST-US-BENCH",
+        "market": "US",
+        "symbol": "TEST-US-BENCH",
+        "venue": "TEST-US",
+        "currency": "USD"
+      },
+      "revision": 1,
+      "observedAt": "2026-09-11T01:03:00.000Z",
+      "receivedAt": "2026-09-11T01:03:00.100Z",
+      "availableAt": "2026-09-11T01:03:00.200Z",
+      "kind": "BAR",
+      "sessionId": "TEST-SESSION",
+      "openAt": "2026-09-11T01:02:00.000Z",
+      "closeAt": "2026-09-11T01:03:00.000Z",
+      "basis": "RAW",
+      "completed": true,
+      "halted": false,
+      "o": "100",
+      "h": "102",
+      "l": "99",
+      "c": "101",
+      "v": "1000"
+    }
+  ]
+}

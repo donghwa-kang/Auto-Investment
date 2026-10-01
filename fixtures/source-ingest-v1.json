@@ -1,0 +1,324 @@
+{
+  "schemaVersion": "OFFLINE_SOURCE_INGEST_V1",
+  "purpose": "MOCK_CONTRACT",
+  "dataOrigin": "MOCK_RESPONSE",
+  "source": "TOSS_REST",
+  "sourceSpecVersion": "1.2.17",
+  "asOf": "2026-09-14T13:33:02Z",
+  "captures": [
+    {
+      "captureId": "listing",
+      "request": { "kind": "LISTING", "market": "NASDAQ", "status": "ACTIVE" },
+      "requestedAt": "2026-09-14T13:33:00Z",
+      "receivedAt": "2026-09-14T13:33:01Z",
+      "availableAt": "2026-09-14T13:33:02Z",
+      "outcome": "RESPONSE",
+      "httpStatus": 200,
+      "response": {
+        "result": [
+          {
+            "symbol": "TEST",
+            "name": "가상 형식 검증 ETF",
+            "securityType": "ETF",
+            "isCommonShare": false,
+            "isinCode": "US0000000002"
+          }
+        ]
+      }
+    },
+    {
+      "captureId": "detail",
+      "request": {
+        "kind": "DETAIL",
+        "targets": [{ "symbol": "TEST", "market": "US", "currency": "USD" }]
+      },
+      "requestedAt": "2026-09-14T13:33:00Z",
+      "receivedAt": "2026-09-14T13:33:01Z",
+      "availableAt": "2026-09-14T13:33:02Z",
+      "outcome": "RESPONSE",
+      "httpStatus": 200,
+      "response": {
+        "result": [
+          {
+            "symbol": "TEST",
+            "name": "가상 형식 검증 ETF",
+            "englishName": "Fictitious contract fixture",
+            "securityType": "ETF",
+            "isCommonShare": false,
+            "isinCode": "US0000000002",
+            "market": "NASDAQ",
+            "status": "ACTIVE",
+            "currency": "USD",
+            "sharesOutstanding": "1000000",
+            "leverageFactor": "3",
+            "listDate": null,
+            "delistDate": null,
+            "koreanMarketDetail": null
+          }
+        ]
+      }
+    },
+    {
+      "captureId": "prices",
+      "request": {
+        "kind": "PRICES",
+        "targets": [{ "symbol": "TEST", "market": "US", "currency": "USD" }]
+      },
+      "requestedAt": "2026-09-14T13:33:00Z",
+      "receivedAt": "2026-09-14T13:33:01Z",
+      "availableAt": "2026-09-14T13:33:02Z",
+      "outcome": "RESPONSE",
+      "httpStatus": 200,
+      "response": {
+        "result": [
+          {
+            "symbol": "TEST",
+            "timestamp": "2026-09-14T22:33:01+09:00",
+            "lastPrice": "101.000",
+            "currency": "USD"
+          }
+        ]
+      }
+    },
+    {
+      "captureId": "book",
+      "request": {
+        "kind": "ORDERBOOK",
+        "target": { "symbol": "TEST", "market": "US", "currency": "USD" }
+      },
+      "requestedAt": "2026-09-14T13:33:00Z",
+      "receivedAt": "2026-09-14T13:33:01Z",
+      "availableAt": "2026-09-14T13:33:02Z",
+      "outcome": "RESPONSE",
+      "httpStatus": 200,
+      "response": {
+        "result": {
+          "timestamp": "2026-09-14T22:33:01+09:00",
+          "currency": "USD",
+          "asks": [{ "price": "101.1", "volume": "10" }],
+          "bids": [{ "price": "101", "volume": "10" }]
+        }
+      }
+    },
+    {
+      "captureId": "indicator",
+      "request": {
+        "kind": "INDICATOR_CANDLES",
+        "symbol": "KOSPI",
+        "interval": "1m",
+        "count": 1,
+        "before": null
+      },
+      "requestedAt": "2026-09-14T13:33:00Z",
+      "receivedAt": "2026-09-14T13:33:01Z",
+      "availableAt": "2026-09-14T13:33:02Z",
+      "outcome": "RESPONSE",
+      "httpStatus": 200,
+      "response": {
+        "result": {
+          "candles": [
+            {
+              "timestamp": "2026-09-14T09:00:00+09:00",
+              "openPrice": "100",
+              "highPrice": "102",
+              "lowPrice": "99",
+              "closePrice": "101",
+              "volume": "10"
+            }
+          ],
+          "nextBefore": null
+        }
+      }
+    },
+    {
+      "captureId": "calendar-kr",
+      "request": { "kind": "CALENDAR_KR", "date": "2026-09-14" },
+      "requestedAt": "2026-09-14T13:33:00Z",
+      "receivedAt": "2026-09-14T13:33:01Z",
+      "availableAt": "2026-09-14T13:33:02Z",
+      "outcome": "RESPONSE",
+      "httpStatus": 200,
+      "response": {
+        "result": {
+          "today": {
+            "date": "2026-09-14",
+            "integrated": {
+              "preMarket": null,
+              "regularMarket": {
+                "startTime": "2026-09-14T09:00:00+09:00",
+                "endTime": "2026-09-14T15:30:00+09:00",
+                "singlePriceAuctionStartTime": "2026-09-14T15:20:00+09:00"
+              },
+              "afterMarket": null
+            }
+          },
+          "previousBusinessDay": {
+            "date": "2026-09-11",
+            "integrated": {
+              "preMarket": null,
+              "regularMarket": {
+                "startTime": "2026-09-11T09:00:00+09:00",
+                "endTime": "2026-09-11T15:30:00+09:00"
+              },
+              "afterMarket": null
+            }
+          },
+          "nextBusinessDay": {
+            "date": "2026-09-15",
+            "integrated": {
+              "preMarket": null,
+              "regularMarket": {
+                "startTime": "2026-09-15T09:00:00+09:00",
+                "endTime": "2026-09-15T15:30:00+09:00"
+              },
+              "afterMarket": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "captureId": "calendar-us",
+      "request": { "kind": "CALENDAR_US", "date": "2026-09-14" },
+      "requestedAt": "2026-09-14T13:33:00Z",
+      "receivedAt": "2026-09-14T13:33:01Z",
+      "availableAt": "2026-09-14T13:33:02Z",
+      "outcome": "RESPONSE",
+      "httpStatus": 200,
+      "response": {
+        "result": {
+          "today": {
+            "date": "2026-09-14",
+            "dayMarket": null,
+            "preMarket": null,
+            "regularMarket": {
+              "startTime": "2026-09-14T22:30:00+09:00",
+              "endTime": "2026-09-15T05:00:00+09:00"
+            },
+            "afterMarket": null
+          },
+          "previousBusinessDay": {
+            "date": "2026-09-11",
+            "dayMarket": null,
+            "preMarket": null,
+            "regularMarket": {
+              "startTime": "2026-09-11T22:30:00+09:00",
+              "endTime": "2026-09-12T05:00:00+09:00"
+            },
+            "afterMarket": null
+          },
+          "nextBusinessDay": {
+            "date": "2026-09-15",
+            "dayMarket": null,
+            "preMarket": null,
+            "regularMarket": {
+              "startTime": "2026-09-15T22:30:00+09:00",
+              "endTime": "2026-09-16T05:00:00+09:00"
+            },
+            "afterMarket": null
+          }
+        }
+      }
+    }
+  ],
+  "pagePlans": [
+    {
+      "planId": "stock-three-minutes",
+      "request": {
+        "kind": "STOCK_CANDLES",
+        "target": { "symbol": "TEST", "market": "US", "currency": "USD" },
+        "interval": "1m",
+        "adjusted": false,
+        "count": 2,
+        "before": null
+      },
+      "windowFrom": "2026-09-14T13:30:00Z",
+      "windowTo": "2026-09-14T13:33:00Z",
+      "maxPages": 2,
+      "replies": [
+        {
+          "captureId": "stock-page-1",
+          "request": {
+            "kind": "STOCK_CANDLES",
+            "target": { "symbol": "TEST", "market": "US", "currency": "USD" },
+            "interval": "1m",
+            "adjusted": false,
+            "count": 2,
+            "before": null
+          },
+          "requestedAt": "2026-09-14T13:33:00Z",
+          "receivedAt": "2026-09-14T13:33:01Z",
+          "availableAt": "2026-09-14T13:33:02Z",
+          "outcome": "RESPONSE",
+          "httpStatus": 200,
+          "response": {
+            "result": {
+              "candles": [
+                {
+                  "timestamp": "2026-09-14T13:33:00Z",
+                  "openPrice": "100",
+                  "highPrice": "102",
+                  "lowPrice": "99",
+                  "closePrice": "101",
+                  "volume": "10",
+                  "currency": "USD"
+                },
+                {
+                  "timestamp": "2026-09-14T13:32:00Z",
+                  "openPrice": "100",
+                  "highPrice": "102",
+                  "lowPrice": "99",
+                  "closePrice": "101",
+                  "volume": "10",
+                  "currency": "USD"
+                }
+              ],
+              "nextBefore": "2026-09-14T13:32:00Z"
+            }
+          }
+        },
+        {
+          "captureId": "stock-page-2",
+          "request": {
+            "kind": "STOCK_CANDLES",
+            "target": { "symbol": "TEST", "market": "US", "currency": "USD" },
+            "interval": "1m",
+            "adjusted": false,
+            "count": 2,
+            "before": "2026-09-14T13:32:00Z"
+          },
+          "requestedAt": "2026-09-14T13:33:01Z",
+          "receivedAt": "2026-09-14T13:33:01.500Z",
+          "availableAt": "2026-09-14T13:33:02Z",
+          "outcome": "RESPONSE",
+          "httpStatus": 200,
+          "response": {
+            "result": {
+              "candles": [
+                {
+                  "timestamp": "2026-09-14T13:32:00Z",
+                  "openPrice": "100",
+                  "highPrice": "102",
+                  "lowPrice": "99",
+                  "closePrice": "101",
+                  "volume": "10",
+                  "currency": "USD"
+                },
+                {
+                  "timestamp": "2026-09-14T13:31:00Z",
+                  "openPrice": "100",
+                  "highPrice": "102",
+                  "lowPrice": "99",
+                  "closePrice": "101",
+                  "volume": "10",
+                  "currency": "USD"
+                }
+              ],
+              "nextBefore": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

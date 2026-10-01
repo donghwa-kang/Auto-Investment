@@ -1,0 +1,148 @@
+.ca-panel {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+.ca-panel .p-card {
+  min-width: 0;
+}
+.ca-panel p {
+  line-height: 1.7;
+}
+.ca-panel pre {
+  max-height: 360px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 16px;
+  background: #f4f6fa;
+  font-size: 12px;
+  border-radius: 12px;
+}
+.ca-panel summary {
+  cursor: pointer;
+  padding: 14px 0;
+  color: #245fbe;
+}
+.ca-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+.ca-metrics div {
+  padding: 16px;
+  background: #f5f8fc;
+  border-radius: 14px;
+}
+.ca-metrics strong {
+  display: block;
+  font-size: 25px;
+  margin-top: 8px;
+}
+.ca-contract {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  line-height: 1.6;
+}
+.ca-contract dt {
+  color: #6b7684;
+}
+.ca-contract dd {
+  margin: 0;
+}
+.ca-hash {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  color: #566478;
+}
+.portfolio-app .ca-consent {
+  border: 1px solid #dce5ef;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.ca-consent label {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 14px 0;
+  line-height: 1.6;
+}
+.portfolio-app .ca-consent input {
+  width: 18px;
+  height: 18px;
+  min-height: 18px;
+  padding: 0;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.ca-result {
+  border-top: 1px solid #dce5ef;
+  margin-top: 24px;
+  padding-top: 16px;
+}
+.ca-history {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: left;
+}
+.ca-nav-label {
+  word-break: keep-all;
+}
+.ca-record-picker label {
+  margin: 14px 0;
+}
+.ca-record-picker button {
+  margin-top: 12px;
+}
+.ca-money-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.ca-money-grid section {
+  background: #f5f8fc;
+  border-radius: 12px;
+  padding: 14px;
+  overflow-wrap: anywhere;
+}
+.ca-record-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.ca-record-table table {
+  min-width: 650px;
+}
+.ca-record-summary {
+  border-top: 1px solid #dce5ef;
+  margin: 20px 0;
+}
+@media (max-width: 650px) {
+  .ca-money-grid {
+    grid-template-columns: 1fr;
+  }
+  .ca-metrics {
+    gap: 6px;
+  }
+  .ca-metrics div {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .ca-contract {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .ca-contract dd {
+    margin-bottom: 10px;
+  }
+  .ca-job .p-section-title {
+    display: block;
+  }
+  .portfolio-app .ca-consent {
+    padding: 12px;
+  }
+}

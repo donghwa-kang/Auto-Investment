@@ -1,0 +1,2 @@
+# Frozen policy hashes cover exact bytes, including historical line endings.
+/outputs/** -text

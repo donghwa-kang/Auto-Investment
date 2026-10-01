@@ -1,0 +1,19 @@
+{
+  "id": "OFFLINE_SIGNAL_REPLAY_TEST_V1",
+  "version": "1.0",
+  "purpose": "TEST_ONLY",
+  "provenance": "DECLARED_SYNTHETIC_INPUT",
+  "allowedModes": ["PAPER", "BACKTEST"],
+  "liveForbidden": true,
+  "precision": {
+    "digits": 40,
+    "rounding": "HALF_EVEN",
+    "moneyStorage": "DECIMAL_STRING"
+  },
+  "history": "IMMUTABLE_DECLARED_START_ALL_VISIBLE_SESSIONS_COMPLETE_NO_FILL",
+  "splitSupport": "KNOWN_SESSION_OPEN_SPLIT_ONLY",
+  "benchmark": "EXPLICIT_PREFLIGHT_VOLUME_BEARING_TEST_PROXY_NOT_VALIDATED",
+  "signalStage": "CHART_PREDICATES_BEFORE_TICK_RISK_COST_SELECTION_AND_ORDERS",
+  "simultaneousSignals": "REPORT_BOTH_NO_PRIORITY_OR_ORDER",
+  "performanceQualified": false
+}

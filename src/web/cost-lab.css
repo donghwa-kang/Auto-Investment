@@ -1,0 +1,83 @@
+.cost-lab {
+  min-width: 0;
+}
+.cost-lab .cw-note {
+  color: var(--p-muted);
+  font-size: 14px;
+  margin-top: 16px;
+}
+.cw-ack {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+.portfolio-app .cw-ack input {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  padding: 0;
+  accent-color: var(--p-blue);
+  color-scheme: light;
+  flex: 0 0 auto;
+}
+.cw-balances {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+.cw-recipe-label {
+  white-space: nowrap;
+}
+.cw-ack select {
+  min-width: 0;
+  flex: 1;
+}
+.cw-balances dt {
+  color: var(--p-muted);
+  font-size: 14px;
+}
+.cw-balances dd {
+  margin: 4px 0 0;
+  font-size: 21px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.cw-table {
+  overflow-x: auto;
+}
+.cw-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+.cw-table th,
+.cw-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--p-line);
+  white-space: nowrap;
+}
+.cw-table caption {
+  text-align: left;
+  padding: 12px 0;
+}
+.cw-evidence {
+  margin-top: 24px;
+  overflow-wrap: anywhere;
+}
+.cw-evidence summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+.cost-lab ul {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 680px) {
+  .cw-balances {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

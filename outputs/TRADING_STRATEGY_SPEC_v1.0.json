@@ -1,0 +1,160 @@
+{
+  "specification_id": "SHARED_BP_SIGNALS",
+  "version": "1.0",
+  "kind": "DECLARATIVE_SPECIFICATION_NOT_EXECUTABLE",
+  "status": "UNVALIDATED",
+  "runtime_implemented": false,
+  "semantics_document": "AI_TRADING_GUIDE_v2.2.md",
+  "semantics_sections": [
+    "7",
+    "9",
+    "24"
+  ],
+  "numeric_contract": {
+    "multipliers": "EXACT_DECIMAL_STRINGS",
+    "prices": "DECIMAL_NO_BINARY_FLOAT_ROUNDING",
+    "display_rounding_not_used_in_comparisons": true,
+    "indicator_precision_profile": null
+  },
+  "input_contract": {
+    "as_of_required": true,
+    "only_completed_bars": true,
+    "available_at_must_not_exceed_as_of": true,
+    "revision_as_of_required": true,
+    "source_bar_minutes": 1,
+    "signal_bar_minutes": 15,
+    "bar_alignment": "EXCHANGE_REGULAR_CONTINUOUS_OPEN",
+    "missing_required_input": "ABSTAIN",
+    "intraday_offsets": "CONTIGUOUS_SAME_SESSION_FOR_B_P_PREDICATES",
+    "incomplete_or_halted_signal_window": "ABSTAIN",
+    "warmup_sessions": 120,
+    "price_basis": "POINT_IN_TIME_EFFECTIVE_SPLIT_ONLY",
+    "execution_price_basis": "RAW"
+  },
+  "indicators": {
+    "daily_sma_fast_sessions": 20,
+    "daily_sma_slow_sessions": 60,
+    "daily_as_of": "PREVIOUS_COMPLETED_SESSION",
+    "atr": {
+      "period": 14,
+      "method": "WILDER",
+      "seed": "MEAN_FIRST_14_TR",
+      "include_session_gap": true,
+      "formula": "TR=max(H-L,abs(H-C_prev),abs(L-C_prev)); ATR=(13*ATR_prev+TR)/14"
+    },
+    "ema": {
+      "period": 20,
+      "alpha_numerator": 2,
+      "alpha_denominator": 21,
+      "seed": "MEAN_FIRST_20_CLOSES"
+    },
+    "vwap": {
+      "reset": "SESSION_OPEN",
+      "formula": "sum(((H+L+C)/3)*V)/sum(V)",
+      "source": "COMPLETED_1_MINUTE_BARS",
+      "zero_denominator": "ABSTAIN"
+    },
+    "relative_volume": {
+      "reference_sessions": 20,
+      "reference": "SAME_BAR_POSITION_PRIOR_COMPARABLE_SESSIONS_MEDIAN",
+      "exclude_current_session": true,
+      "zero_denominator": "ABSTAIN"
+    },
+    "opening_range": {
+      "minutes": 30,
+      "freeze_after_completion": true
+    },
+    "volatility_ceiling": {
+      "lookback_sessions": 60,
+      "feature": "ATR14/C",
+      "reference": "SAME_BAR_POSITION_PRIOR_VALID_SESSIONS",
+      "percentile": "0.95",
+      "method": "NEAREST_RANK_CEIL",
+      "reject": "CURRENT_STRICTLY_GREATER"
+    }
+  },
+  "common_predicates": [
+    "instrument.previous_daily_close > instrument.SMA60",
+    "instrument.SMA20 > instrument.SMA60",
+    "benchmark.previous_daily_close > benchmark.SMA60",
+    "benchmark.C[t] > benchmark.VWAP_approx[t]"
+  ],
+  "benchmark_contract": {
+    "profile_required": true,
+    "zero_volume_index_cannot_substitute_vwap": true,
+    "proxy_mapping_requires_validation": true
+  },
+  "strategies": [
+    {
+      "id": "B",
+      "version": "1.0",
+      "status": "UNVALIDATED",
+      "parameters": {
+        "breakout_atr_buffer": "0.05",
+        "rvol_min": "1.5",
+        "vwap_distance_atr_max": "1.5",
+        "stop_atr_buffer": "0.1",
+        "stop_distance_atr_min": "0.8",
+        "stop_distance_atr_max": "2"
+      },
+      "predicates": [
+        "C[t-1] <= ORH",
+        "C[t] > ORH + breakout_atr_buffer*ATR[t]",
+        "RVOL[t] >= rvol_min",
+        "0 < C[t]-VWAP[t] <= vwap_distance_atr_max*ATR[t]"
+      ],
+      "stop_formula": "S_raw=min(L[t],L[t-1])-stop_atr_buffer*ATR[t]",
+      "post_rounding_predicate": "stop_distance_atr_min*ATR[t] <= P-S <= stop_distance_atr_max*ATR[t]"
+    },
+    {
+      "id": "P",
+      "version": "1.0",
+      "status": "UNVALIDATED",
+      "parameters": {
+        "ema_slope_offset_bars": 3,
+        "pullback_offsets": [
+          1,
+          2,
+          3
+        ],
+        "pullback_low_atr_max": "0.25",
+        "pullback_close_atr_min": "-0.5",
+        "rvol_min": "1.2",
+        "ema_distance_atr_max": "1",
+        "stop_low_offsets": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "stop_atr_buffer": "0.1",
+        "stop_distance_atr_min": "0.8",
+        "stop_distance_atr_max": "2"
+      },
+      "predicates": [
+        "EMA[t] > EMA[t-3]",
+        "exists k in {t-1,t-2,t-3}: L[k] <= EMA[k]+pullback_low_atr_max*ATR[k] AND C[k] >= EMA[k]+pullback_close_atr_min*ATR[k]",
+        "C[t] > H[t-1]",
+        "C[t] > EMA[t]",
+        "C[t] > VWAP[t]",
+        "RVOL[t] >= rvol_min",
+        "C[t]-EMA[t] <= ema_distance_atr_max*ATR[t]"
+      ],
+      "stop_formula": "S_raw=min(L[t],L[t-1],L[t-2],L[t-3])-stop_atr_buffer*ATR[t]",
+      "post_rounding_predicate": "stop_distance_atr_min*ATR[t] <= P-S <= stop_distance_atr_max*ATR[t]"
+    }
+  ],
+  "boundary_contract": {
+    "strict_and_inclusive_operators_preserved": true,
+    "stop": "FLOOR_TO_VALID_TICK",
+    "entry": "CEIL_LATEST_VALID_ASK_TO_VALID_TICK",
+    "risk_distance_rechecked_after_rounding": true,
+    "time_cost_exit_risk_numbers": "REFER_TO_COMMON_POLICY_NOT_COPIED",
+    "simultaneous_signals": "ONE_INTENT_VALIDATED_NET_EV_THEN_PREREGISTERED_STABILITY_PRIORITY_ELSE_ABSTAIN"
+  },
+  "interpretation": {
+    "formula_strings_are_explanatory_not_eval": true,
+    "unregistered_rule_or_parameter": "REJECT",
+    "missing_precision_or_benchmark_profile_blocks_live": true
+  }
+}

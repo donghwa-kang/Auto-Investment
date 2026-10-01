@@ -1,0 +1,181 @@
+{
+  "extension_id": "THEME_RESEARCH_FOCUS",
+  "version": "1.2",
+  "policy_kind": "specification_not_executable",
+  "guide_file": "THEME_RESEARCH_GUIDE_v1.2.md",
+  "base_policy_file": "AI_TRADING_POLICY_v2.2.json",
+  "enabled": false,
+  "mode": "PAPER",
+  "live_enabled": false,
+  "universe_modes": [
+    "MARKET_SCAN",
+    "THEME_FOCUS",
+    "HYBRID"
+  ],
+  "default_universe_mode": "MARKET_SCAN",
+  "activation_requires_user_configuration": true,
+  "inherit_base_risk_and_exit_policy": true,
+  "separate_capital_or_loss_budget": false,
+  "approved_themes": [],
+  "selection_policy_version": null,
+  "selection_status": "UNVALIDATED",
+  "capacity_trial_defaults": {
+    "maximum_active_themes": 5,
+    "maximum_leader_candidates_per_theme": 3,
+    "maximum_growth_candidates_per_theme": 3,
+    "maximum_etf_candidates_per_theme": 2,
+    "maximum_unique_focus_watchlist": 20,
+    "deduplicate_by": "CANONICAL_INSTRUMENT_ID",
+    "fill_empty_slots": false
+  },
+  "research": {
+    "company_and_etf_dossiers_separate": true,
+    "annual_report_target_count": 3,
+    "interim_report_target_count": 8,
+    "respect_issuer_reporting_frequency": true,
+    "missing_required_evidence_action": "BLOCK_NEW_ENTRY",
+    "maximum_dossier_age_calendar_days": 30,
+    "source_review_before_each_session": true,
+    "material_change_invalidates_dossier": true,
+    "membership_review": "WEEKLY",
+    "regular_membership_effective_at": "NEXT_REGULAR_SESSION_PREOPEN",
+    "full_thesis_review": "MONTHLY_OR_BEFORE_EXPIRY_AND_MATERIAL_EVENTS",
+    "safety_exclusion_effective_at": "IMMEDIATE",
+    "research_states": [
+      "DISCOVERED",
+      "RESEARCHING",
+      "RESEARCH_READY",
+      "STALE",
+      "REJECTED"
+    ],
+    "source_timestamps_and_revisions_required": true,
+    "counter_evidence_required": true,
+    "auto_promote_from_llm_score": false,
+    "expiry_independent_of_calendar_month": true
+  },
+  "trade_permission": {
+    "unknown_field_action": "BLOCK_NEW_ENTRY",
+    "research_ready_implies_trade_allowed": false,
+    "live_selection_update_requires_validated_policy": true,
+    "membership_removal_action": "BLOCK_AND_CANCEL_NEW_ENTRIES_KEEP_EXIT_MANAGEMENT",
+    "leveraged_etf_action": "OBSERVE_ONLY",
+    "change_holding_horizon": false,
+    "required_live_true_fields": [
+      "broker_eligible",
+      "product_profile_validated",
+      "selection_validated",
+      "research_current",
+      "in_active_list",
+      "strategy_validated",
+      "user_live_authorized",
+      "global_guard_clear"
+    ],
+    "required_simulation_true_fields": [
+      "experiment_manifest_ready",
+      "selection_rules_defined",
+      "research_inputs_valid_for_experiment",
+      "in_experiment_list",
+      "strategy_rules_defined",
+      "global_guard_clear"
+    ],
+    "base_entry_checks_by_mode_required": true,
+    "live_approval_required_for_simulation": false,
+    "simulation_execution_route": "SIMULATOR_ONLY",
+    "undefined_profile_blocks_simulation": true
+  },
+  "portfolio_and_cost": {
+    "same_theme_joins_risk_group": true,
+    "base_overlap_and_correlation_checks_required": true,
+    "single_account_order_and_risk_reservation": true,
+    "share_base_monthly_operating_cost_budget": true,
+    "share_base_ai_candidates_per_bar_limit": true,
+    "protection_continues_when_research_stops": true,
+    "global_safety_deny_applies_to_all_sources": true,
+    "membership_only_removal_is_source_scoped": true
+  },
+  "illustrative_instruments": [
+    {
+      "symbol": "SOXX",
+      "market": "US",
+      "classification": "EQUITY_SECTOR_ETF",
+      "research_example_only": true,
+      "live_permission": "UNVERIFIED",
+      "source_url": "https://www.ishares.com/us/products/239705/ishares-semiconductor-etf"
+    },
+    {
+      "symbol": "SOXL",
+      "market": "US",
+      "classification": "LEVERAGED_EQUITY_SECTOR_ETF",
+      "daily_target_multiplier": 3,
+      "research_example_only": true,
+      "live_permission": "OBSERVE_ONLY",
+      "source_url": "https://www.direxion.com/product/daily-semiconductor-bull-bear-3x-etfs"
+    }
+  ],
+  "validation": {
+    "company_due_diligence_performed": false,
+    "selection_backtest_performed": false,
+    "data_pipeline_implemented": false,
+    "live_execution_verified": false,
+    "scheduler_created": false
+  },
+  "previous_policy_file": "THEME_RESEARCH_POLICY_v1.1.json",
+  "review_report_file": "TRADING_POLICY_REVIEW_v2.2.md",
+  "selection_profiles": [],
+  "selection_profile_contract": {
+    "required_fields": [
+      "id",
+      "version",
+      "status",
+      "approved_at",
+      "scope",
+      "comparison_cohort",
+      "required_fields",
+      "inclusion_predicates",
+      "retention_predicates",
+      "exclusion_predicates",
+      "ordered_sort_keys",
+      "role_capacity",
+      "cross_theme_priority",
+      "snapshot_effective_at",
+      "validation_evidence"
+    ],
+    "undefined_action": "BLOCK_SELECTION",
+    "defined_unvalidated_simulation_allowed": true,
+    "final_tie_breaker": "CANONICAL_INSTRUMENT_ID",
+    "arbitrary_code_execution": false
+  },
+  "research_intraday_contract": {
+    "long_horizon_dossier_not_intraday_profit_probability": true,
+    "material_fact_change_invalidates_before_weekly_refresh": true,
+    "trade_time_reads_cached_version_only": true,
+    "bulk_research_in_30_second_signal_path": false,
+    "membership_snapshot_hash_required": true,
+    "shared_signal_definition_file": "TRADING_STRATEGY_SPEC_v1.0.json",
+    "theme_bypasses_signal_or_risk": false
+  },
+  "incremental_validation": {
+    "performed": false,
+    "contract_source": "AI_TRADING_POLICY_v2.2.json",
+    "compare_pairs": [
+      [
+        "Q",
+        "QT"
+      ],
+      [
+        "QN",
+        "QNT"
+      ]
+    ],
+    "same_as_of_parent_universe_and_risk": true,
+    "full_research_and_turnover_cost_included": true,
+    "no_automatic_live_promotion": true,
+    "selection_profiles_must_be_defined_before_experiment": true
+  },
+  "counter_review": {
+    "inherit_base_contract": true,
+    "separate_review_budget": false,
+    "cached_dossier_is_evidence_not_buy_authorization": true,
+    "enabled": false
+  }
+}
